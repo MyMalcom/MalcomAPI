@@ -14,15 +14,20 @@ This document introduces the new format of push notifications mechanism of Malco
 General Notes
 -
 ###Conection
-Over HTTP communication protocol
+Over HTTP communication protocol.
 
 ###Content codification
 The "Content-Type" must be **"application/json"** for request and answer.
 
-###Authentication
+###Content limit
+Notifications are limited to 250 characters
+
+Authentication
+-
 HTTP Basic Auth with Malcom's user data.
 
-###Manage API Errors
+Manage API Errors
+-
 Errors are returned by standard syntax of HTTP codes. Any additional information as result of the error call is included in the body of the answer in JSON format.
 
 List of error codes:
@@ -36,7 +41,7 @@ List of error codes:
 | 500    | Internal error or when no more specific message is suitable      |
 
 
-A mentioned, with a code 412 API return in the body of the message a JSON object with this format:
+As we mentioned, with a code 412 API return in the body of the message a JSON object with this format:
 
     {
     "response": {
@@ -68,30 +73,30 @@ v3
 POST
 
 ####Parameters
-Request do not require any parameter
+Request do not require any parameter.
 
 ####Request body
 
 | Field   | Description     | Type | Character | 
 |:------------- |:-------------|:-------------:|:------------:| 
 | notification    |Object container | JSON | Mandatory |
-| <dd>applicationCode</dt>    |App UUID identifier in Malcom | String | Conditional |
-| <dd>enviroment</dd>    |Environment belong the devices that will receive the push notification. Valid values are **SANDBOX**: Devices registered in sandbox environment. **PRODUCTION**: Devices registered in production environment. | String | Mandatory |
-| <dd>message</dd>    |Text of the notification conveniently escaped | String | Mandatory |
-| <dd>segmentId</dd>    |Segment ID that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields | Integer | Conditional |
-| <dd>segmentIds</dd>    |Segment IDs that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields. If one device is in several segments only one notification will be sent to it. This property is exclusive of applicationCode and segmentId fields | JSON Array de Integer | Conditional |
-| <dd>udids</dd>    |Device IDs to send the notification separated by commas. If not specified, will be sent to all devices in the application specified in the **applicationCode** field | JSON Array | Conditional |
-| <dd>saturationControl</dd>    |Activate or deactivate saturation control. For any device that have received a notification in the time window defined in **saturationCtrlDays and saturationCtrlHours** fields, will not send the specific request through this message. **Value by default is false** | Booleano | Optional |
-| <dd>saturationCtrlDays</dd>    |Number of days since last notification sent to the device. **Value by default is 0** | Integer | Optional |
-| <dd>saturationCtrlHours</dd>    |Number of hours since last notification sent to the device. **Value by default is 0** | Integer | Optional |
+| applicationCode    |App UUID identifier in Malcom | String | Conditional |
+| enviroment    |Environment belong the devices that will receive the push notification. Valid values are **SANDBOX**: Devices registered in sandbox environment. **PRODUCTION**: Devices registered in production environment. | String | Mandatory |
+| message    |Text of the notification conveniently escaped | String | Mandatory |
+| segmentId    |Segment ID that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields | Integer | Conditional |
+| segmentIds    |Segment IDs that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields. If one device is in several segments only one notification will be sent to it. This property is exclusive of applicationCode and segmentId fields | JSON Array de Integer | Conditional |
+| udids    |Device IDs to send the notification separated by commas. If not specified, will be sent to all devices in the application specified in the **applicationCode** field | JSON Array | Conditional |
+| saturationControl    |Activate or deactivate saturation control. For any device that have received a notification in the time window defined in **saturationCtrlDays and saturationCtrlHours** fields, will not send the specific request through this message. **Value by default is false** | Booleano | Optional |
+| saturationCtrlDays    |Number of days since last notification sent to the device. **Value by default is 0** | Integer | Optional |
+| saturationCtrlHours    |Number of hours since last notification sent to the device. **Value by default is 0** | Integer | Optional |
 | notificationCustomization    |Container for the customization of the notification | JSON | Optional |
 | badge    |Number plate displayed on the notification | Integer | Optional |
 | customfield    |Container for customized fields. Belong to the parameters sent to the devices to be interpreted by the application.
 You can send multiple parameters | JSON | Optional |
 | entry    |Key-value pair to be interpreted by the application | JSON | Optional |
 | sound    |Sound of the notification | String | Optional |
-| <dd>notificationType</dd>    |Notification type to send. In this version just indicate if notification to send is using TAGS filter | String | Optional |
-| <dd>filter</dd>    |Filter to apply if notification is a TAG type | JSON | Optional |
+| notificationType    |Notification type to send. In this version just indicate if notification to send is using TAGS filter | String | Optional |
+| filter    |Filter to apply if notification is a TAG type | JSON | Optional |
 | tags    |Tag name or group of tags to filter the notification | Array | Optional |
 
 ####Answer
