@@ -9,7 +9,7 @@ This interface in presented through a REST API (Representation State Transfer).
 
 Objetive
 -
-This document introduces the new format of push notifications mechanism of Malcom, which make easy the integration with external platforms providing the send of push notifications to different platforms.
+This document introduces the new format of push notifications mechanism of Malcom, which make easy the integration with external platforms to send push notifications to different platforms.
 
 General Notes
 -
@@ -52,7 +52,7 @@ This is a list of API REST resources available under the URL api.mymalcom.com
 Notifications
 -
 
-    /v3/notification/push
+**/v3/notification/push**
 
 ####Description
 It allows the delivery of a Push Notification to all the devices registered on the
