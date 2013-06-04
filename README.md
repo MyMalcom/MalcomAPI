@@ -75,23 +75,23 @@ Request do not require any parameter
 | Field   | Description     | Type | Character | 
 |:------------- |:-------------|:-------------:|:------------:| 
 | notification    |Object container | JSON | Mandatory |
-| applicationCode    |App UUID identifier in Malcom | String | Conditional |
-| enviroment    |Environment belong the devices that will receive the push notification. Valid values are **SANDBOX**: Devices registered in sandbox environment. **PRODUCTION**: Devices registered in production environment. | String | Mandatory |
-| message    |Text of the notification conveniently escaped | String | Mandatory |
-| segmentId    |Segment ID that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields | Integer | Conditional |
-| segmentIds    |Segment IDs that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields. If one device is in several segments only one notification will be sent to it. This property is exclusive of applicationCode and segmentId fields | JSON Array de Integer | Conditional |
-| udids    |Device IDs to send the notification separated by commas. If not specified, will be sent to all devices in the application specified in the **applicationCode** field | JSON Array | Conditional |
-| saturationControl    |Activate or deactivate saturation control. For any device that have received a notification in the time window defined in **saturationCtrlDays and saturationCtrlHours** fields, will not send the specific request through this message. **Value by default is false** | Booleano | Optional |
-| saturationCtrlDays    |Number of days since last notification sent to the device. **Value by default is 0** | Integer | Optional |
-| saturationCtrlHours    |Number of hours since last notification sent to the device. **Value by default is 0** | Integer | Optional |
+| <dd>applicationCode</dt>    |App UUID identifier in Malcom | String | Conditional |
+| <dd>enviroment</dd>    |Environment belong the devices that will receive the push notification. Valid values are **SANDBOX**: Devices registered in sandbox environment. **PRODUCTION**: Devices registered in production environment. | String | Mandatory |
+| <dd>message</dd>    |Text of the notification conveniently escaped | String | Mandatory |
+| <dd>segmentId</dd>    |Segment ID that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields | Integer | Conditional |
+| <dd>segmentIds</dd>    |Segment IDs that belong all the devices to receive the notification. This property is exclusive of **applicationCode and segmentIds** fields. If one device is in several segments only one notification will be sent to it. This property is exclusive of applicationCode and segmentId fields | JSON Array de Integer | Conditional |
+| <dd>udids</dd>    |Device IDs to send the notification separated by commas. If not specified, will be sent to all devices in the application specified in the **applicationCode** field | JSON Array | Conditional |
+| <dd>saturationControl</dd>    |Activate or deactivate saturation control. For any device that have received a notification in the time window defined in **saturationCtrlDays and saturationCtrlHours** fields, will not send the specific request through this message. **Value by default is false** | Booleano | Optional |
+| <dd>saturationCtrlDays</dd>    |Number of days since last notification sent to the device. **Value by default is 0** | Integer | Optional |
+| <dd>saturationCtrlHours</dd>    |Number of hours since last notification sent to the device. **Value by default is 0** | Integer | Optional |
 | notificationCustomization    |Container for the customization of the notification | JSON | Optional |
 | badge    |Number plate displayed on the notification | Integer | Optional |
 | customfield    |Container for customized fields. Belong to the parameters sent to the devices to be interpreted by the application.
 You can send multiple parameters | JSON | Optional |
 | entry    |Key-value pair to be interpreted by the application | JSON | Optional |
 | sound    |Sound of the notification | String | Optional |
-| notificationType    |Notification type to send. In this version just indicate if notification to send is using TAGS filter | String | Optional |
-| filter    |Filter to apply if notification is a TAG type | JSON | Optional |
+| <dd>notificationType</dd>    |Notification type to send. In this version just indicate if notification to send is using TAGS filter | String | Optional |
+| <dd>filter</dd>    |Filter to apply if notification is a TAG type | JSON | Optional |
 | tags    |Tag name or group of tags to filter the notification | Array | Optional |
 
 ####Answer
