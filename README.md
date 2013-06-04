@@ -52,7 +52,7 @@ This is a list of API REST resources available under the URL api.mymalcom.com
 Notifications
 -
 
-    */v3/notification/push*
+    /v3/notification/push
 
 ####Description
 It allows the delivery of a Push Notification to all the devices registered on the
@@ -134,3 +134,5 @@ If the request has been successful, the answer contain the code generated for th
     "applicationCode":"3eb5fdfd-8045-4111-8889-999999", "environment":"SANDBOX",
     "message":"Este es una notificacion con filtro de tags", "notificationCustomization”:{“sound”:”default”}
     } }
+    
+    
