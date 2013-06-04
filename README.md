@@ -1,2 +1,2 @@
-Notification API
+Malcom API
 ================
