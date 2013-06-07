@@ -91,8 +91,7 @@ Request do not require any parameter.
 | saturationCtrlHours    |Number of hours since last notification sent to the device. **Value by default is 0** | Integer | Optional |
 | notificationCustomization    |Container for the customization of the notification | JSON | Optional |
 | badge    |Number plate displayed on the notification | Integer | Optional |
-| customfield    |Container for customized fields. Belong to the parameters sent to the devices to be interpreted by the application.
-You can send multiple parameters | JSON | Optional |
+| customfield    |Container for customized fields. Belong to the parameters sent to the devices to be interpreted by the application. You can send multiple parameters | JSON Array | Optional |
 | entry    |Key-value pair to be interpreted by the application | JSON | Optional |
 | sound    |Sound of the notification | String | Optional |
 | notificationType    |Notification type to send. In this version just indicate if notification to send is using TAGS filter | String | Optional |
