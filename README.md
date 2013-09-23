@@ -42,12 +42,14 @@ List of error codes:
 
 
 As we mentioned, with a code 412 API return in the body of the message a JSON object with this format:
-
-    {
-    "response": {
-    "description": (descripción del error)
-    "code": (código del error) }
-    }
+```json
+{
+  "response": {
+    "description": <Error description>,
+    "code": <Error code>
+  }
+}
+```
 
 Resources
 -
@@ -100,43 +102,88 @@ Request do not require any parameter.
 
 ####Answer
 If the request has been successful, the answer contain the code generated for the notification sent.
-
-    {
-    "response": {
-    "value": { "notificationId": 19581
+```json
+{
+  "response": {
+    "value": {
+      "notificationId": 19581
     },
-    "code": "OK" }
-    }
+    "code": "OK"
+  }
+}
+```
 
 ####Example 1 - Basic notification
-
-    {
-    "notification":{
-    "applicationCode":"3eb5fdfd-8045-4111-8889-999999", "environment":"SANDBOX",
+```json
+{
+  "notification":{
+    "applicationCode":"3eb5fdfd-8045-4111-8889-999999",
+    "environment":"SANDBOX",
     "message":"Este es un mensaje de ejemplo"
-    } }
+  }
+}
+```
 
 ####Example 2 - Notification to different segments
-
-    {
-    "notification":{
-    "segmentIds":[1637,1638], "environment":"SANDBOX", "message":"Este es un mensaje de ejemplo"
-    } }
+```json
+{
+  "notification":{
+    "segmentIds":[1637,1638],
+    "environment":"SANDBOX",
+    "message":"Este es un mensaje de ejemplo"
+  }
+}
+```
 
 ####Example 3 - Notification to specific tags
-
-    {
-    "notification":{
-    "applicationCode":"3eb5fdfd-8045-4111-8889-999999", "environment":"SANDBOX",
-    "message":"Este es una notificacion con filtro de tags", "saturationControl":false,
-    "saturationCtrlDays":0, "saturationCtrlHours":0, "notificationType":"TAGS", "filter":{"tags":["myTag"] }
-    } }
+```json
+{
+  "notification":{
+    "applicationCode":"3eb5fdfd-8045-4111-8889-999999",
+    "environment":"SANDBOX",
+    "message":"Este es una notificacion con filtro de tags", 
+    "saturationControl":false,
+    "saturationCtrlDays":0, 
+    "saturationCtrlHours":0, 
+    "notificationType":"TAGS",
+    "filter":{
+      "tags":["myTag"]
+    }
+  }
+}
+```
 
 ####Example 4 - Notification alert sound
-    {
-    "notification":{
-    "applicationCode":"3eb5fdfd-8045-4111-8889-999999", "environment":"SANDBOX",
-    "message":"Este es una notificacion con filtro de tags", "notificationCustomization”:{“sound”:”default”}
-    } }
+```json
+{
+  "notification":{
+    "applicationCode":"3eb5fdfd-8045-4111-8889-999999", 
+    "environment":"SANDBOX",
+    "message":"Este es una notificacion con filtro de tags", 
+    "notificationCustomization":{
+      "sound":"default"
+     }
+  }
+}
+```
+
+####Example 5 - Notification custom fields
+```json
+{
+  "notification":{
+    "applicationCode":"3eb5fdfd-8045-4111-8889-999999", 
+    "environment":"SANDBOX",
+    "message":"Este es una notificacion con filtro de tags", 
+    "notificationCustomization":{
+      "sound":"default",
+      "customFields":{
+        "entry" : [{
+            "key" : "foo",
+            "value" : "bar"
+           }]
+     }
+  }
+}
+```
     
     
