@@ -185,5 +185,18 @@ If the request has been successful, the answer contain the code generated for th
   }
 }
 ```
+
+####Example 6 - Notification to specific devices
+```json
+{
+  "notification":{
+    "applicationCode":"3eb5fdfd-8045-4111-8889-999999",
+    "environment":"SANDBOX",
+    "message":"This is a notification to a specific device",
+    "udids":[1234567890]
+  }
+}
+```
+    
     
     
