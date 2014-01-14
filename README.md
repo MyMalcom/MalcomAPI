@@ -198,5 +198,61 @@ If the request has been successful, the answer contain the code generated for th
 }
 ```
     
-    
+Notifications status
+-
+
+**/v3/notification/push/{id}**
+
+####Description
+It allows query the status of a push notification with given {id}
+
+####URL's structure
+api.mymalcom.com/v3/notification/push/{id}
+
+####Version
+v3
+
+####Method
+GET
+
+####Parameters
+{id} identifier of the push notification
+
+####Response body
+
+| Field   | Description     | Type | 
+|:------------- |:-------------|:-------------:|
+| status    |Object container | JSON |
+| id    |Notification identifier | Long |
+| candidates    |Number of target devices | Integer | 
+| failedPushes    |Total falied notifications | Integer |
+| sentOn    |Timestamp indicating when notification has been delivered to APNS or GCM services | Date |
+| sentPushes    |Total succeed notifications| Integer|
+
+####Answer 1
+If the request has been successful, the answer contain the information related to notification.
+```json
+{
+ "status":{
+   "candidates":10,
+   "failedPushes":0,
+   "id":2000,
+   "sentOn":"2013-10-04T11:04:44+02:00",
+   "sentPushes":10
+  }
+}
+```
+
+####Answer 2
+If there isn't a notification with given identifier, the answer is:
+```json
+{
+ "response":
+  {
+   "description":"Notification with id 2200 not found",
+   "code":"Not Found"
+  }
+}
+```
+
     
