@@ -14,7 +14,7 @@ This document introduces the new format of push notifications mechanism of Malco
 General Notes
 -
 ###Conection
-Over HTTP communication protocol.
+Over HTTPS communication protocol.
 
 ###Content codification
 The "Content-Type" must be **"application/json"** for request and answer.
